@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+  max-width: 700px;
+  margin: 1rem auto 1rem;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: "Open Sans", sans-serif;
+}
+
+.search__input {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.search__term {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #00B4CC;
+  font-family: "Open Sans", sans-serif;
+  text-shadow: 0 0 7px #c7f12e;
+  -webkit-text-stroke: 0.5px black;
+  font-size: 1.6vw;
+}
+
+.search__term:focus {
+  color: #00B4CC;
+  font-family: "Open Sans", sans-serif;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow: 0 0 7px #c7f12e;
+  font-size: 1.6vw;
+}
+
+.search_button {
+  width: 40px;
+  height: 56px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search__container {
+  display: flex;
+  width: 450px;
+  min-width: 30%;
+  max-width: 60%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main {
+  padding-left: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 30px;
+}
+
+aside {
+  grid-row-start: span 7;
+  padding-right: 30px;
+}
+
+card {
+  background: var(--acid-green);
+  background: linear-gradient(176deg, var(--acid-green) 0%, var(--accent-blue) 49%, var(--dark-blue) 91%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.image__container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 30px;
+  border: 5px solid var(--acid-green);
+}
+
+.info__container {
+  border-radius: 30px;
+  color: var(--beige);
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  height: 150px;
+}
+
+footer p {
+  font-family: "Open Sans", sans-serif;
+  color: #00B4CC;
+  text-shadow: 0 0 7px #c7f12e;
+  -webkit-text-stroke: 0.5px black;
+  font-size: 24em;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+a:visited {
+  font-family: "Open Sans", sans-serif;
+  color: #00B4CC;
+  text-shadow: 0 0 7px #c7f12e;
+  -webkit-text-stroke: 0.5px black;
+}
+
+/*# sourceMappingURL=styles.css.map */
