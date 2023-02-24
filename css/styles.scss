@@ -76,11 +76,13 @@ main {
 }
 
 aside {
+  display:grid;
   grid-row-start: span 7;
+  grid-column-start: 1;
   padding-right:30px;
 }
 
-card {
+.card__container {
   background: var(--acid-green);
   background: linear-gradient(176deg, var(--acid-green) 0%, var(--accent-blue) 49%, var(--dark-blue) 91%);
   display: flex;
@@ -90,15 +92,16 @@ card {
   padding: 30px;
 
 }
-.image__container img {
+.card__image img {
   width: 150px;
   height: 150px;
   border-radius: 30px;
   border: 5px solid var(--acid-green);
 }
-.info__container{
+.card__species .card__name .card__origin{
   border-radius: 30px;
   color: var(--beige);
+  background:red;
 }
 
 footer {
