@@ -1,7 +1,6 @@
 let page = 1;
 let isLoading = false;
-let speciesSet = new Set()
-
+var changedView = false;
 renderCharacters();
 
 async function renderCharacters(query = "", page = 1) {
@@ -83,6 +82,28 @@ function debounce(func, delay) {
             timerId = null;
         }, delay);
     };
+}
+
+var isFourColumns = false;
+
+function changeGrid() {
+    var content = document.getElementById("content");
+    var cards = document.getElementsByClassName("card__container")
+    console.log(cards)
+    if (!isFourColumns) {
+        content.style.gridTemplateColumns = "repeat(2, minmax(250px, 450px))";
+        for(let card of cards){
+            card.style.marginLeft = "5em"
+        }
+
+        isFourColumns = true;
+    } else {
+        content.style.gridTemplateColumns = "repeat(auto-fill, minmax(250px, 1fr))";
+        for(let card of cards){
+            card.style.marginLeft = "0"
+        }
+        isFourColumns = false;
+    }
 }
 
 /*function loadFilters(characters, speciesSet = new Set) {
