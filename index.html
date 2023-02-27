@@ -32,23 +32,27 @@
 
 <main class="main">
     <aside>
-    <h1>Filters</h1>
-        <fieldset>
-            <legend><h2>Status</h2></legend>
+
+
+        <fieldset id="statusFilter">
+            <legend><p>Filter by:
+                Status</p></legend>
             <div>
-                <input type="checkbox" id="alive" value="alive" />
+                <input type="radio" name="statusOption" id="alive" value="alive" />
                 <label for="alive">Alive</label>
             </div>
             <div>
-                <input type="checkbox" id="dead" value="dead" />
+                <input type="radio" name="statusOption" id="dead" value="dead" />
                 <label for="dead">Dead</label>
             </div>
             <div>
-                <input type="checkbox" id="unknown" name="unknown" value="unknown" />
+                <input type="radio" id="unknown" name="statusOption" value="unknown" />
                 <label for="unknown">Unknown</label>
             </div>
         </fieldset>
+
     </aside>
+    <div id="content"></div>
 </main>
 
 
@@ -58,6 +62,7 @@
 <footer>
     <p>Created by <a href="http://github.com/mariorey">Mario Rey</a></p>
 </footer>
+<audio id="evil-morty"><source src="media/evilmorty.mp3" type="audio/mp3">
 <script type="text/javascript" src="js/js.js"></script>
 </body>
 </html>
