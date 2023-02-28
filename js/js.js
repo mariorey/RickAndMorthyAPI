@@ -1,6 +1,7 @@
 let page = 1;
 let isLoading = false;
-var changedView = false;
+let changedView = false;
+let isVisible = false;
 renderCharacters();
 
 async function renderCharacters(query = "", page = 1) {
@@ -10,10 +11,15 @@ async function renderCharacters(query = "", page = 1) {
     if(statusFilter==null){statusFilter = ""}
     else{statusFilter = statusFilter.value}
 
+    let genderFilter = document.querySelector('#genderFilter input[name="genderOption"]:checked')
+    if(genderFilter==null){genderFilter = ""}
+    else{genderFilter = genderFilter.value}
+
     const urlParams = new URLSearchParams({
         name: query,
         page: page,
         status: statusFilter,
+        gender: genderFilter,
     });
 
     const response = await fetch(`https://rickandmortyapi.com/api/character/?${urlParams.toString()}`, {});
@@ -70,6 +76,10 @@ async function renderCharacters(query = "", page = 1) {
         renderCharacters(search__term.value, 1);
     });
 
+    document.querySelector('#genderFilter').addEventListener('change', () => {
+        renderCharacters(search__term.value, 1);
+    });
+
 
 function debounce(func, delay) {
     let timerId;
@@ -85,13 +95,14 @@ function debounce(func, delay) {
 }
 
 function changeGrid() {
-    var content = document.getElementById("content");
-    var cards = document.getElementsByClassName("card__container")
+    let content = document.getElementById("content");
+    let cards = document.getElementsByClassName("card__container")
     console.log(cards)
     if (!changedView) {
         content.style.gridTemplateColumns = "repeat(2, minmax(250px, 450px))";
         for(let card of cards){
             card.style.marginLeft = "5em"
+            card.childNodes[3].style.marginTop="10px"
         }
 
         changedView = true;
@@ -99,6 +110,7 @@ function changeGrid() {
         content.style.gridTemplateColumns = "repeat(auto-fill, minmax(250px, 1fr))";
         for(let card of cards){
             card.style.marginLeft = "0"
+            card.childNodes[3].style.marginTop="0"
         }
         changedView = false;
     }
@@ -109,21 +121,24 @@ async function clearInput(){
     renderCharacters()
 }
 
-/*function loadFilters(characters, speciesSet = new Set) {
-    let species = document.getElementById("species")
-    characters.forEach(character => {
-        speciesSet.add(character.status)
-    })
-    speciesSet.forEach(specie => {
-        const check = document.createRange().createContextualFragment(`
-                 <div>
-                <input type="checkbox" id=${specie} name=${specie} value=${specie} />
-                <label for=${specie}>${specie}</label>
-                </div>`)
+let aside = document.querySelector("aside");
 
-        species.append(check)
-    return speciesSet})
-    }*/
+
+document.querySelector('#dropFilters').addEventListener('click', () => {
+    if(!isVisible){
+        aside.style.display = "flex";
+        aside.style.flexDirection= "row";
+        aside.style.justifyContent= "space-around";
+        aside.style.marginTop = "0";
+        isVisible=true;
+    }
+    else{
+        aside.style.display = "none";
+        isVisible=false;
+    }
+
+
+});
 
 
 

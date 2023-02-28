@@ -40,9 +40,14 @@ body {
   color: #00B4CC;
   -webkit-text-stroke: 0.5px black;
   text-shadow: 0 0 7px #c7f12e;
-  font-size: 1.8vw;
+  font-size: 2.6vw;
 }
 
+@media (min-width: 768px) {
+  .search__term:focus {
+    font-size: 1.6vw;
+  }
+}
 .search_button {
   width: 40px;
   height: 56px;
@@ -148,12 +153,11 @@ fieldset {
 
 label {
   font-size: 14px;
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
 aside {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 20px;
@@ -163,12 +167,29 @@ aside {
   border-radius: 10px;
 }
 
+@media only screen and (max-width: 768px) {
+  .dropFilters {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5em;
+    height: 50px;
+    margin: auto;
+  }
+}
 @media only screen and (min-width: 768px) {
   aside {
+    display: flex;
     order: 1;
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 14em;
+    height: 24em;
+  }
+  .dropFilters {
+    display: none;
   }
   #content {
     order: 2;
@@ -196,7 +217,14 @@ aside {
 
 .card__image {
   border-radius: 15px;
-  border: 5px solid var(--acid-green);
+  border: 5px solid #c7f12e;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.card__image:hover {
+  object-fit: cover;
+  transform: scale(1.15);
 }
 
 .card__species .card__name .card__origin {
@@ -234,7 +262,7 @@ input[type=radio] {
 }
 
 input[type=radio]:checked + label {
-  text-decoration: underline;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=styles.css.map */
