@@ -84,26 +84,29 @@ function debounce(func, delay) {
     };
 }
 
-var isFourColumns = false;
-
 function changeGrid() {
     var content = document.getElementById("content");
     var cards = document.getElementsByClassName("card__container")
     console.log(cards)
-    if (!isFourColumns) {
+    if (!changedView) {
         content.style.gridTemplateColumns = "repeat(2, minmax(250px, 450px))";
         for(let card of cards){
             card.style.marginLeft = "5em"
         }
 
-        isFourColumns = true;
+        changedView = true;
     } else {
         content.style.gridTemplateColumns = "repeat(auto-fill, minmax(250px, 1fr))";
         for(let card of cards){
             card.style.marginLeft = "0"
         }
-        isFourColumns = false;
+        changedView = false;
     }
+}
+
+async function clearInput(){
+    document.getElementById('search__term').value="";
+    renderCharacters()
 }
 
 /*function loadFilters(characters, speciesSet = new Set) {
