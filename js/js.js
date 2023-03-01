@@ -97,7 +97,6 @@ function debounce(func, delay) {
 function changeGrid() {
     let content = document.getElementById("content");
     let cards = document.getElementsByClassName("card__container")
-    console.log(cards)
     if (!changedView) {
         content.style.gridTemplateColumns = "repeat(2, minmax(250px, 450px))";
         for(let card of cards){

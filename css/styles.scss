@@ -74,6 +74,12 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top:2em;
+}
+
+.buttonsContainer{
+  display:flex;
+
 }
 
 main {
@@ -127,8 +133,8 @@ fieldset {
 }
 
 .changeView__button{
-    visibility: visible;
-  margin-left:auto;
+    display:block;
+    margin-left:auto;
     padding: 6px;
     background-color: transparent;
     color: #fff;
@@ -137,7 +143,7 @@ fieldset {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     cursor: pointer;
   @media only screen and (max-width: 768px) {
-    visibility: hidden;
+    display:none
   }
 
   }
@@ -152,6 +158,7 @@ fieldset {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
   margin: 30px;
+  justify-content:center;
   @media only screen and (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(150px, 400px));
   }
@@ -179,13 +186,16 @@ aside {
     .dropFilters{
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       display:flex;
       justify-content:center;
       align-items:center;
-      width: 5em;
-      height: 50px;
-      margin:auto;
+      border-radius: 10px;
+    }
+    .search__container{
+      margin-top:0;
+      margin-bottom:-2em;
+      display:flex;
+      flex-direction:row;
     }
   }
 
@@ -195,6 +205,7 @@ aside {
 @media only screen and (min-width: 768px) {
   aside {
     display:flex;
+    flex-direction:column;
     order: 1;
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -229,6 +240,7 @@ aside {
   padding-top:10px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-right: 1em;
 
 }
 .card__image{
@@ -246,6 +258,10 @@ aside {
   border-radius: 30px;
   color: var(--beige);
   background:red;
+}
+
+h2{
+  margin-bottom:-2px;
 }
 
 footer {
