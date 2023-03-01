@@ -2,6 +2,7 @@ let page = 1;
 let isLoading = false;
 let changedView = false;
 let isVisible = false;
+window.lastry = 0;
 renderCharacters();
 
 async function renderCharacters(query = "", page = 1) {
@@ -80,6 +81,20 @@ async function renderCharacters(query = "", page = 1) {
         renderCharacters(search__term.value, 1);
     });
 
+    document.querySelector('#statusClear__button').addEventListener('click', clearFilters);
+
+    document.querySelector('#genderClear__button').addEventListener('click', clearFilters);
+
+
+    function clearFilters() {
+        document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+            radio.checked = false;
+        });
+        renderCharacters();
+    }
+
+
+
 
 function debounce(func, delay) {
     let timerId;
@@ -138,6 +153,9 @@ document.querySelector('#dropFilters').addEventListener('click', () => {
 
 
 });
+
+
+renderCharacters();
 
 
 

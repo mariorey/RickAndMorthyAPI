@@ -122,6 +122,11 @@ fieldset {
     grid-template-columns: 15% 85%;
   }
 }
+.statusClear__button, .genderClear__button {
+  background: transparent;
+  border: none;
+}
+
 .changeView__button {
   display: block;
   margin-left: auto;
