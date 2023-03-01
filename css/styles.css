@@ -104,6 +104,14 @@ fieldset {
   border-radius: 16px;
 }
 
+.unknown {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  padding: 10px;
+  border-radius: 16px;
+}
+
 .Dead {
   background-color: red;
   border: none;
@@ -144,8 +152,12 @@ fieldset {
   }
 }
 
-.changeView__button:hover {
-  transform: rotate(1turn);
+.changeView__button img {
+  transition: transform 0.7s ease-in-out;
+}
+
+.changeView__button img:hover {
+  transform: rotate(360deg);
 }
 
 #content {
@@ -238,11 +250,12 @@ aside {
   overflow: hidden;
 }
 
-.card__image:hover {
-  object-fit: cover;
-  transform: scale(1.15);
+@media only screen and (min-width: 768px) {
+  .card__image:hover {
+    object-fit: cover;
+    transform: scale(1.15);
+  }
 }
-
 .card__species .card__name .card__origin {
   border-radius: 30px;
   color: var(--beige);
