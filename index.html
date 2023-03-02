@@ -20,14 +20,39 @@
 </header>
 
 <div class="search__container">
-    <div class="search__input">
+    <div id="search__input" class="search__input">
 
-        <label for="search__term"></label><input id="search__term" type="text" class="search__term" placeholder="Search your favorite character">
+        <label for="search__term"></label><input id="search__term" autocomplete="off" type="text" class="search__term" placeholder="Search your favorite character">
             <button type="submit" class="search_button" id="submit">
                 <i class="fa fa-search"></i>
             </button>
+        <div id="popular__searches" class="popular__searches">
+            <p>Búsquedas populares</p>
+            <fieldset id="popular__searches--fieldset">
+
+                <div>
+                    <input type="radio" name="popularOption" id="rick" value="rick" />
+                    <label for="rick">RICK</label>
+                </div>
+                <div>
+                    <input type="radio" name="popularOption" id="jerry" value="jerry" />
+                    <label for="jerry">JERRY</label>
+                </div>
+                <div>
+                    <input type="radio" name="popularOption" id="beth" value="beth" />
+                    <label for="beth">BETH</label>
+                </div>
+                <div>
+                    <input type="radio" name="popularOption" id="evil" value="evil" />
+                    <label for="evil">EVIL</label>
+                </div>
+
+            </fieldset>
+        </div>
+
 
     </div>
+
     <div class="buttonsContainer">
         <button id="dropFilters" class="dropFilters"><img alt="Filters" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/2048px-Hamburger_icon.svg.png" height="40" width="40"></button>
 

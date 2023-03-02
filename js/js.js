@@ -51,6 +51,8 @@ async function renderCharacters(query = "", page = 1) {
     });
 
     isLoading = false;
+
+
 }
 
     const search__term = document.getElementById('search__term');
@@ -64,7 +66,16 @@ async function renderCharacters(query = "", page = 1) {
 
         }
         debouncedRenderCharacters(query);
+
     });
+
+    search__term.addEventListener('input', () => {
+        const query = search__term.value;
+        if(query === ""){
+            const popularSearches = document.getElementById('popular__searches');
+            popularSearches.style.display="none";
+        }
+    })
 
     window.addEventListener('scroll', () => {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100 && !isLoading) {
@@ -92,6 +103,28 @@ async function renderCharacters(query = "", page = 1) {
         });
         renderCharacters();
     }
+
+document.getElementById('search__term').addEventListener('focus', ()=>{
+    const popularSearches = document.getElementById('popular__searches');
+    popularSearches.style.display="block";
+} )
+
+document.getElementById('search__term').addEventListener('focusout', ()=>{
+    document.getElementById('popular__searches--fieldset').addEventListener('focusout', ()=>{
+    const popularSearches = document.getElementById('popular__searches');
+    popularSearches.style.display="none";
+} )
+} )
+
+document.getElementsByName('popularOption').forEach(function(radioButton) {
+    radioButton.addEventListener('change', function() {
+        document.getElementById('search__term').value = radioButton.value;
+        renderCharacters(radioButton.value)
+        const popularSearches = document.getElementById('popular__searches');
+        popularSearches.style.display="none";
+    });
+});
+
 
 
 

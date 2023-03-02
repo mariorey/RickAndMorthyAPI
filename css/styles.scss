@@ -315,3 +315,38 @@ input[type="radio"] {
 input[type="radio"]:checked+ label{
   font-weight:bold;
 }
+
+  @media only screen and (max-width: 1000px){
+    aside {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+  .popular__searches{
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .popular__searches{
+      position: absolute;
+      top: 94%;
+      background: white;
+      border: 3px solid;
+      border-radius: 0 0 5px 5px;
+      border-top: none;
+      padding-right: 13.17em;
+      border-color: #00B4CC;
+    }
+
+
+    .popular__searches p{
+      margin-left: 0.6em;
+      font-weight:bold;
+      margin-bottom:-0.2em;
+    }
+    .popular__searches fieldset{
+      margin-left:1em;
+    }
+  }
+
+
