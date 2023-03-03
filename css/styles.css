@@ -308,6 +308,11 @@ input[type=radio]:checked + label {
   display: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .popular__searches {
+    display: none;
+  }
+}
 @media only screen and (min-width: 768px) {
   .popular__searches {
     position: absolute;

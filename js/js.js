@@ -106,7 +106,8 @@ async function renderCharacters(query = "", page = 1) {
 
 document.getElementById('search__term').addEventListener('focus', ()=>{
     const popularSearches = document.getElementById('popular__searches');
-    popularSearches.style.display="block";
+    if(screen.width > "768") {popularSearches.style.display="block";}
+
 } )
 
 document.getElementById('search__term').addEventListener('focusout', ()=>{
